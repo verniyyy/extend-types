@@ -7,7 +7,7 @@ import (
 	"github.com/samber/lo"
 )
 
-func StringJoiner[T fmt.Stringer](sep string, s ...T) string {
+func StringsJoiner[T fmt.Stringer](sep string, s ...T) string {
 	stringList := lo.Map(s, func(str T, _ int) string {
 		return str.String()
 	})
