@@ -28,8 +28,8 @@ func NewChar(char string) *Char {
 	}
 }
 
-func (c *Char) Set(char string) {
-	c.basic.Set(headOfString(char))
+func (c *Char) Set(char string) error {
+	return c.basic.Set(headOfString(char))
 }
 
 func headOfString(str string) string {
