@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/YasutomoNakajima/extend-types/lib"
+	"github.com/verniyyy/extend-types/lib"
 )
 
 type basic[T comparable] interface {

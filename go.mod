@@ -1,4 +1,4 @@
-module github.com/YasutomoNakajima/extend-types
+module github.com/verniyyy/extend-types
 
 go 1.20
 

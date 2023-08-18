@@ -3,8 +3,8 @@ package types
 import (
 	"fmt"
 
-	"github.com/YasutomoNakajima/extend-types/lib"
 	"github.com/samber/lo"
+	"github.com/verniyyy/extend-types/lib"
 )
 
 type List[T any] []T
