@@ -8,11 +8,18 @@ import (
 
 type basic[T comparable] interface {
 	fmt.Stringer
+	Printer
+
 	Read() T
 	Ptr() *T
+	PrimitiveTypeName() string
+}
+
+type Printer interface {
 	Print()
 	Println()
-	PrimitiveTypeName() string
+	Printf(string)
+	Sprintf(string) string
 }
 
 type b[T comparable] struct {
@@ -47,4 +54,12 @@ func (b *b[T]) Print() {
 
 func (b *b[T]) PrimitiveTypeName() string {
 	return lib.TypeName(b.v)
+}
+
+func (b *b[T]) Printf(s string) {
+	fmt.Printf(s, b.v)
+}
+
+func (b *b[T]) Sprintf(s string) string {
+	return fmt.Sprintf(s, b.v)
 }
