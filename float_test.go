@@ -1,8 +1,11 @@
 package types
 
-import "testing"
+import "fmt"
 
-func TestFloat(t *testing.T) {
+func ExampleFloat() {
 	f := NewFloat(5.5)
-	f.Print()
+	fmt.Printf("f: %v\n", f)
+
+	// Output:
+	// f: 5.5
 }

@@ -2,9 +2,6 @@ package types
 
 import (
 	"fmt"
-	"strings"
-
-	"github.com/samber/lo"
 )
 
 type Str struct {
@@ -23,11 +20,11 @@ func fromStringer(s fmt.Stringer) *Str {
 	}
 }
 
-func (s *Str) Chars() Chars {
-	return lo.Map(
-		strings.Split(s.Get(), ""),
-		func(c string, _ int) *Char {
-			return NewChar(c)
-		},
-	)
-}
+// func (s *Str) Chars() Chars {
+// 	return lo.Map(
+// 		strings.Split(s.Read(), ""),
+// 		func(c string, _ int) *Char {
+// 			return NewChar(c)
+// 		},
+// 	)
+// }

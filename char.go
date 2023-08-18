@@ -1,37 +1,36 @@
 package types
 
-import (
-	"strings"
+// type Chars []*Char
 
-	"github.com/samber/lo"
-)
-
-type Chars []*Char
-
-func (cs Chars) Str() *Str {
-	strings_ := lo.Map(
-		cs,
-		func(c *Char, _ int) string {
-			return c.Get()
-		},
-	)
-	return NewStr(strings.Join(strings_, ""))
-}
+// func (cs Chars) Str() *Str {
+// 	strings_ := lo.Map(
+// 		cs,
+// 		func(c *Char, _ int) string {
+// 			return string(c.Read())
+// 		},
+// 	)
+// 	return NewStr(strings.Join(strings_, ""))
+// }
 
 type Char struct {
-	basic[string]
+	basic[rune]
 }
 
 func NewChar(char string) *Char {
+	for _, r := range char {
+		return &Char{
+			newBasic(r),
+		}
+	}
 	return &Char{
-		newBasic(headOfString(char)),
+		newBasic(rune(0)),
 	}
 }
 
-func (c *Char) Set(char string) error {
-	return c.basic.Set(headOfString(char))
+func (c *Char) String() string {
+	return string(c.Read())
 }
 
-func headOfString(str string) string {
-	return str[0:1]
+func (c *Char) Byte() byte {
+	return byte(c.Read())
 }
