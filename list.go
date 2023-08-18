@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/YasutomoNakajima/extend-types/types/lib"
+	"github.com/YasutomoNakajima/extend-types/lib"
 	"github.com/samber/lo"
 )
 

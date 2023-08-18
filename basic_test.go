@@ -2,15 +2,20 @@ package types
 
 import (
 	"fmt"
-	"testing"
 )
 
-func TestBasic(t *testing.T) {
+func ExampleBasic() {
 	b := newBasic(16)
-	fmt.Println(b)
+	fmt.Printf("b: %v\n", b)
+
+	// Output:
+	// b: 16
 }
 
-func TestBasic_PrimitiveTypeName(t *testing.T) {
+func ExampleBasic_PrimitiveTypeName() {
 	b := newBasic(16)
 	fmt.Printf("b.PrimitiveTypeName(): %v\n", b.PrimitiveTypeName())
+
+	// Output:
+	// b.PrimitiveTypeName(): int
 }
