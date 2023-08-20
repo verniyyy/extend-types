@@ -42,6 +42,15 @@ func (l arrayList[T]) At(i int) T {
 	return l[index]
 }
 
+func (l arrayList[T]) Include(v T) bool {
+	for _, value := range l {
+		if lib.DeepEqual(value, v) {
+			return true
+		}
+	}
+	return false
+}
+
 func (l *arrayList[T]) Insert(i int, v T) {
 	index := l.index(i)
 	*l = append((*l)[:index], append([]T{v}, (*l)[index:]...)...)
