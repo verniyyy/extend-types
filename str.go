@@ -8,9 +8,9 @@ type Str struct {
 	basic[string]
 }
 
-func NewStr(s string) *Str {
+func NewStr[T ~string](s T) *Str {
 	return &Str{
-		newBasic(s),
+		newBasic(string(s)),
 	}
 }
 

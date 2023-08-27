@@ -16,7 +16,7 @@ type Char struct {
 	basic[rune]
 }
 
-func NewChar(char string) *Char {
+func NewChar[T ~string](char T) *Char {
 	for _, r := range char {
 		return &Char{
 			newBasic(r),
