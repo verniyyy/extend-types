@@ -6,7 +6,7 @@ type List[T any] interface {
 	ReadOnlyList[T]
 	Stack[T]
 	Queue[T]
-	types.Enumerable[T, int, List[T]]
+	types.Enumerator[T, int, List[T]]
 
 	Add(T)
 	Insert(int, T)

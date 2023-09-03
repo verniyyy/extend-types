@@ -11,8 +11,11 @@ type basic[T comparable] interface {
 	Printer
 
 	Read() T
+	Validate() error
 	Ptr() *T
 	PrimitiveTypeName() string
+	Equal(T) bool
+	DeepEqual(T) bool
 }
 
 type Printer interface {
@@ -44,6 +47,14 @@ func (b *b[T]) Ptr() *T {
 	return &b.v
 }
 
+func (b *b[T]) Equal(v T) bool {
+	return b.v == v
+}
+
+func (b *b[T]) DeepEqual(v T) bool {
+	return lib.DeepEqual(b.v, v)
+}
+
 func (b *b[T]) Println() {
 	fmt.Println(b.v)
 }
@@ -62,4 +73,8 @@ func (b *b[T]) Printf(s string) {
 
 func (b *b[T]) Sprintf(s string) string {
 	return fmt.Sprintf(s, b.v)
+}
+
+func (b *b[T]) Validate() error {
+	return nil
 }
