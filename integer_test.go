@@ -5,7 +5,7 @@ import (
 )
 
 func ExampleInt() {
-	i := NewInt(6)
+	i := NewInteger(6)
 	fmt.Printf("i: %v\n", i)
 
 	// Output:
