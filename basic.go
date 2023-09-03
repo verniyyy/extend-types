@@ -11,6 +11,7 @@ type basic[T comparable] interface {
 	Printer
 
 	Read() T
+	Validate() error
 	Ptr() *T
 	PrimitiveTypeName() string
 }
@@ -62,4 +63,8 @@ func (b *b[T]) Printf(s string) {
 
 func (b *b[T]) Sprintf(s string) string {
 	return fmt.Sprintf(s, b.v)
+}
+
+func (b *b[T]) Validate() error {
+	return nil
 }
