@@ -6,8 +6,8 @@ type Integer[T constraints.Integer] struct {
 	basic[T]
 }
 
-func NewInteger[T constraints.Integer](i T) *Integer[T] {
-	return &Integer[T]{
+func NewInteger[T constraints.Integer](i T) Integer[T] {
+	return Integer[T]{
 		newBasic(i),
 	}
 }
@@ -36,6 +36,6 @@ func (i *Integer[T]) Str() *Str {
 	return fromStringer(i)
 }
 
-func (i *Integer[T]) Float() *Float[float64] {
+func (i *Integer[T]) Float() Float[float64] {
 	return NewFloat(float64(i.Read()))
 }

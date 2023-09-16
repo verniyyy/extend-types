@@ -16,13 +16,13 @@ type Char struct {
 	basic[rune]
 }
 
-func NewChar[T ~string](char T) *Char {
+func NewChar[T ~string](char T) Char {
 	for _, r := range char {
-		return &Char{
+		return Char{
 			newBasic(r),
 		}
 	}
-	return &Char{
+	return Char{
 		newBasic(rune(0)),
 	}
 }

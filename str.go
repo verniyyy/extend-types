@@ -10,8 +10,8 @@ type Str struct {
 	basic[string]
 }
 
-func NewStr[T ~string](s T) *Str {
-	return &Str{
+func NewStr[T ~string](s T) Str {
+	return Str{
 		newBasic(string(s)),
 	}
 }
@@ -30,9 +30,9 @@ func (s *Str) Bytes() []byte {
 	return unsafe.Slice(unsafe.StringData(s.Read()), s.Size())
 }
 
-func (s *Str) Split(sep string) []*Str {
+func (s *Str) Split(sep string) []Str {
 	strList := strings.Split(s.Read(), sep)
-	result := make([]*Str, len(strList))
+	result := make([]Str, len(strList))
 	for i, item := range strList {
 		result[i] = NewStr(item)
 	}
@@ -42,12 +42,3 @@ func (s *Str) Split(sep string) []*Str {
 func (s *Str) Include(sub string) bool {
 	return strings.Contains(s.Read(), sub)
 }
-
-// func (s *Str) Chars() Chars {
-// 	return lo.Map(
-// 		strings.Split(s.Read(), ""),
-// 		func(c string, _ int) *Char {
-// 			return NewChar(c)
-// 		},
-// 	)
-// }

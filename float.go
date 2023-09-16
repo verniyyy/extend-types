@@ -8,8 +8,8 @@ type Float[T constraints.Float] struct {
 	basic[T]
 }
 
-func NewFloat[T constraints.Float](v T) *Float[T] {
-	return &Float[T]{
+func NewFloat[T constraints.Float](v T) Float[T] {
+	return Float[T]{
 		newBasic(v),
 	}
 }
