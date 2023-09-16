@@ -16,6 +16,13 @@ func NewStr[T ~string](s T) Str {
 	}
 }
 
+func NewStrFromBytes(data []byte) Str {
+	s := *(*string)(unsafe.Pointer(&data))
+	return Str{
+		newBasic(s),
+	}
+}
+
 func fromStringer(s fmt.Stringer) *Str {
 	return &Str{
 		newBasic(s.String()),
