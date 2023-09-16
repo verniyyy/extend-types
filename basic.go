@@ -9,13 +9,12 @@ import (
 type basic[T comparable] interface {
 	fmt.Stringer
 	Printer
+	Comparator[T]
 
 	Read() T
 	Validate() error
 	Ptr() *T
 	PrimitiveTypeName() string
-	Equal(T) bool
-	DeepEqual(T) bool
 }
 
 type Printer interface {
