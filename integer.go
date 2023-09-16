@@ -48,6 +48,18 @@ func (i *Integer[T]) UInt64() uint64 {
 	return uint64(i.value())
 }
 
+func (i *Integer[T]) IsZero() bool {
+	return i.value() == 0
+}
+
+func (i *Integer[T]) IsNegative() bool {
+	return i.value() < 0
+}
+
+func (i *Integer[T]) IsPositive() bool {
+	return i.value() > 0
+}
+
 func (i *Integer[T]) Str() *Str {
 	return fromStringer(i)
 }
