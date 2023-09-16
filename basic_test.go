@@ -29,19 +29,10 @@ func ExampleBasic_PrimitiveTypeName_Foo() {
 	// b.PrimitiveTypeName(): Foo
 }
 
-func ExampleBasic_Printf() {
+func ExampleBasic_Print() {
 	b := newBasic("foo")
-	b.Printf("b: %v")
+	b.Print("b")
 
 	// Output:
 	// b: foo
-}
-
-func ExampleBasic_Sprintf() {
-	b := newBasic("foo")
-	s := b.Sprintf("b: %v")
-	fmt.Printf("s: %v\n", s)
-
-	// Output:
-	// s: b: foo
 }

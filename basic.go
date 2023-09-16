@@ -8,23 +8,20 @@ import (
 
 type basic[T comparable] interface {
 	fmt.Stringer
-	Printer
 	Comparator[T]
 
 	Read() T
 	Validate() error
 	Ptr() *T
 
+	// Print with label.
+	// if label="example" then output:
+	// example: ${b.v}
+	Print(label string)
+
 	// CoreTypeName returns the type parameter name of a
 	// basic type as a string.
 	CoreTypeName() string
-}
-
-type Printer interface {
-	Print()
-	Println()
-	Printf(string)
-	Sprintf(string) string
 }
 
 type b[T comparable] struct {
@@ -57,24 +54,15 @@ func (b *b[T]) DeepEqual(v T) bool {
 	return lib.DeepEqual(b.v, v)
 }
 
-func (b *b[T]) Println() {
-	fmt.Println(b.v)
-}
-
-func (b *b[T]) Print() {
-	fmt.Print(b.v)
+// Print with label.
+// if label="example" then output:
+// example: ${b.v}
+func (b *b[T]) Print(label string) {
+	fmt.Printf("%s: %v\n", label, b.v)
 }
 
 func (b *b[T]) CoreTypeName() string {
 	return lib.TypeName(b.v)
-}
-
-func (b *b[T]) Printf(s string) {
-	fmt.Printf(s, b.v)
-}
-
-func (b *b[T]) Sprintf(s string) string {
-	return fmt.Sprintf(s, b.v)
 }
 
 func (b *b[T]) Validate() error {
