@@ -32,6 +32,22 @@ func (i *Integer[T]) Int64() int64 {
 	return int64(i.value())
 }
 
+func (i *Integer[T]) UInt8() uint8 {
+	return uint8(i.value())
+}
+
+func (i *Integer[T]) UInt16() uint16 {
+	return uint16(i.value())
+}
+
+func (i *Integer[T]) UInt32() uint32 {
+	return uint32(i.value())
+}
+
+func (i *Integer[T]) UInt64() uint64 {
+	return uint64(i.value())
+}
+
 func (i *Integer[T]) Str() *Str {
 	return fromStringer(i)
 }
