@@ -16,12 +16,12 @@ func newBasic[T comparable](v T) basic[T] {
 	}
 }
 
-func (b *basic[T]) String() string {
-	return fmt.Sprint(b.v)
+func (b *basic[T]) value() T {
+	return b.v
 }
 
-func (b *basic[T]) Read() T {
-	return b.v
+func (b *basic[T]) String() string {
+	return fmt.Sprint(b.v)
 }
 
 func (b *basic[T]) Ptr() *T {

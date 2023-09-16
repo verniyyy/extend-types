@@ -15,11 +15,11 @@ func NewFloat[T constraints.Float](v T) Float[T] {
 }
 
 func (f *Float[T]) Float32() float32 {
-	return float32(f.Read())
+	return float32(f.value())
 }
 
 func (f *Float[T]) Float64() float64 {
-	return float64(f.Read())
+	return float64(f.value())
 }
 
 func (f *Float[T]) Str() *Str {

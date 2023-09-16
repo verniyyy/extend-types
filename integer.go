@@ -13,23 +13,23 @@ func NewInteger[T constraints.Integer](i T) Integer[T] {
 }
 
 func (i *Integer[T]) Int() int {
-	return int(i.Read())
+	return int(i.value())
 }
 
 func (i *Integer[T]) Int8() int8 {
-	return int8(i.Read())
+	return int8(i.value())
 }
 
 func (i *Integer[T]) Int16() int16 {
-	return int16(i.Read())
+	return int16(i.value())
 }
 
 func (i *Integer[T]) Int32() int32 {
-	return int32(i.Read())
+	return int32(i.value())
 }
 
 func (i *Integer[T]) Int64() int64 {
-	return int64(i.Read())
+	return int64(i.value())
 }
 
 func (i *Integer[T]) Str() *Str {
@@ -37,5 +37,5 @@ func (i *Integer[T]) Str() *Str {
 }
 
 func (i *Integer[T]) Float() Float[float64] {
-	return NewFloat(float64(i.Read()))
+	return NewFloat(float64(i.value()))
 }
