@@ -12,12 +12,21 @@ func ExampleBasic() {
 	// b: foo
 }
 
-func ExampleBasic_PrimitiveTypeName() {
+func ExampleBasic_PrimitiveTypeName_string() {
 	b := newBasic("foo")
-	fmt.Printf("b.PrimitiveTypeName(): %v\n", b.PrimitiveTypeName())
+	fmt.Printf("b.PrimitiveTypeName(): %v\n", b.CoreTypeName())
 
 	// Output:
 	// b.PrimitiveTypeName(): string
+}
+
+func ExampleBasic_PrimitiveTypeName_Foo() {
+	type Foo struct{}
+	b := newBasic(Foo{})
+	fmt.Printf("b.PrimitiveTypeName(): %v\n", b.CoreTypeName())
+
+	// Output:
+	// b.PrimitiveTypeName(): Foo
 }
 
 func ExampleBasic_Printf() {

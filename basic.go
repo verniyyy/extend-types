@@ -14,7 +14,10 @@ type basic[T comparable] interface {
 	Read() T
 	Validate() error
 	Ptr() *T
-	PrimitiveTypeName() string
+
+	// CoreTypeName returns the type parameter name of a
+	// basic type as a string.
+	CoreTypeName() string
 }
 
 type Printer interface {
@@ -62,7 +65,7 @@ func (b *b[T]) Print() {
 	fmt.Print(b.v)
 }
 
-func (b *b[T]) PrimitiveTypeName() string {
+func (b *b[T]) CoreTypeName() string {
 	return lib.TypeName(b.v)
 }
 
