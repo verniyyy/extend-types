@@ -4,77 +4,50 @@ import (
 	"fmt"
 
 	"github.com/verniyyy/extend-types/lib"
+	"golang.org/x/exp/constraints"
 )
 
-type basic[T comparable] interface {
-	fmt.Stringer
-	Printer
-
-	Read() T
-	Validate() error
-	Ptr() *T
-	PrimitiveTypeName() string
-	Equal(T) bool
-	DeepEqual(T) bool
-}
-
-type Printer interface {
-	Print()
-	Println()
-	Printf(string)
-	Sprintf(string) string
-}
-
-type b[T comparable] struct {
+type basic[T constraints.Ordered] struct {
 	v T
 }
 
-func newBasic[T comparable](v T) basic[T] {
-	return &b[T]{
+func newBasic[T constraints.Ordered](v T) basic[T] {
+	return basic[T]{
 		v: v,
 	}
 }
 
-func (b *b[T]) String() string {
-	return fmt.Sprint(b.v)
-}
-
-func (b *b[T]) Read() T {
+func (b basic[T]) value() T {
 	return b.v
 }
 
-func (b *b[T]) Ptr() *T {
+func (b basic[T]) String() string {
+	return fmt.Sprint(b.v)
+}
+
+func (b basic[T]) Ptr() *T {
 	return &b.v
 }
 
-func (b *b[T]) Equal(v T) bool {
+func (b basic[T]) Equal(v T) bool {
 	return b.v == v
 }
 
-func (b *b[T]) DeepEqual(v T) bool {
+func (b basic[T]) DeepEqual(v T) bool {
 	return lib.DeepEqual(b.v, v)
 }
 
-func (b *b[T]) Println() {
-	fmt.Println(b.v)
+// Print with label.
+// if label="example" then output:
+// example: ${b.v}
+func (b basic[T]) Print(label string) {
+	fmt.Printf("%s: %v\n", label, b.v)
 }
 
-func (b *b[T]) Print() {
-	fmt.Print(b.v)
-}
-
-func (b *b[T]) PrimitiveTypeName() string {
+func (b basic[T]) CoreTypeName() string {
 	return lib.TypeName(b.v)
 }
 
-func (b *b[T]) Printf(s string) {
-	fmt.Printf(s, b.v)
-}
-
-func (b *b[T]) Sprintf(s string) string {
-	return fmt.Sprintf(s, b.v)
-}
-
-func (b *b[T]) Validate() error {
+func (b basic[T]) Validate() error {
 	return nil
 }

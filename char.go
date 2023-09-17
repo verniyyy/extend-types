@@ -6,7 +6,7 @@ package types
 // 	strings_ := lo.Map(
 // 		cs,
 // 		func(c *Char, _ int) string {
-// 			return string(c.Read())
+// 			return string(c.value())
 // 		},
 // 	)
 // 	return NewStr(strings.Join(strings_, ""))
@@ -16,21 +16,21 @@ type Char struct {
 	basic[rune]
 }
 
-func NewChar[T ~string](char T) *Char {
+func NewChar[T ~string](char T) Char {
 	for _, r := range char {
-		return &Char{
+		return Char{
 			newBasic(r),
 		}
 	}
-	return &Char{
+	return Char{
 		newBasic(rune(0)),
 	}
 }
 
-func (c *Char) String() string {
-	return string(c.Read())
+func (c Char) String() string {
+	return string(c.value())
 }
 
-func (c *Char) Byte() byte {
-	return byte(c.Read())
+func (c Char) Byte() byte {
+	return byte(c.value())
 }
