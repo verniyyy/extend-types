@@ -20,15 +20,6 @@ func ExampleBasic_PrimitiveTypeName_string() {
 	// b.PrimitiveTypeName(): string
 }
 
-func ExampleBasic_PrimitiveTypeName_Foo() {
-	type Foo struct{}
-	b := newBasic(Foo{})
-	fmt.Printf("b.PrimitiveTypeName(): %v\n", b.CoreTypeName())
-
-	// Output:
-	// b.PrimitiveTypeName(): Foo
-}
-
 func ExampleBasic_Print() {
 	b := newBasic("foo")
 	b.Print("b")

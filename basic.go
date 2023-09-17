@@ -4,13 +4,14 @@ import (
 	"fmt"
 
 	"github.com/verniyyy/extend-types/lib"
+	"golang.org/x/exp/constraints"
 )
 
-type basic[T comparable] struct {
+type basic[T constraints.Ordered] struct {
 	v T
 }
 
-func newBasic[T comparable](v T) basic[T] {
+func newBasic[T constraints.Ordered](v T) basic[T] {
 	return basic[T]{
 		v: v,
 	}
