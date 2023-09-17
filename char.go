@@ -27,10 +27,10 @@ func NewChar[T ~string](char T) Char {
 	}
 }
 
-func (c *Char) String() string {
+func (c Char) String() string {
 	return string(c.value())
 }
 
-func (c *Char) Byte() byte {
+func (c Char) Byte() byte {
 	return byte(c.value())
 }

@@ -23,21 +23,21 @@ func NewStrFromBytes(data []byte) Str {
 	}
 }
 
-func fromStringer(s fmt.Stringer) *Str {
-	return &Str{
+func fromStringer(s fmt.Stringer) Str {
+	return Str{
 		newBasic(s.String()),
 	}
 }
 
-func (s *Str) Size() int {
+func (s Str) Size() int {
 	return len(s.value())
 }
 
-func (s *Str) Bytes() []byte {
+func (s Str) Bytes() []byte {
 	return unsafe.Slice(unsafe.StringData(s.value()), s.Size())
 }
 
-func (s *Str) Split(sep string) []Str {
+func (s Str) Split(sep string) []Str {
 	strList := strings.Split(s.value(), sep)
 	result := make([]Str, len(strList))
 	for i, item := range strList {
@@ -46,6 +46,6 @@ func (s *Str) Split(sep string) []Str {
 	return result
 }
 
-func (s *Str) Include(sub string) bool {
+func (s Str) Include(sub string) bool {
 	return strings.Contains(s.value(), sub)
 }

@@ -17,37 +17,37 @@ func newBasic[T constraints.Ordered](v T) basic[T] {
 	}
 }
 
-func (b *basic[T]) value() T {
+func (b basic[T]) value() T {
 	return b.v
 }
 
-func (b *basic[T]) String() string {
+func (b basic[T]) String() string {
 	return fmt.Sprint(b.v)
 }
 
-func (b *basic[T]) Ptr() *T {
+func (b basic[T]) Ptr() *T {
 	return &b.v
 }
 
-func (b *basic[T]) Equal(v T) bool {
+func (b basic[T]) Equal(v T) bool {
 	return b.v == v
 }
 
-func (b *basic[T]) DeepEqual(v T) bool {
+func (b basic[T]) DeepEqual(v T) bool {
 	return lib.DeepEqual(b.v, v)
 }
 
 // Print with label.
 // if label="example" then output:
 // example: ${b.v}
-func (b *basic[T]) Print(label string) {
+func (b basic[T]) Print(label string) {
 	fmt.Printf("%s: %v\n", label, b.v)
 }
 
-func (b *basic[T]) CoreTypeName() string {
+func (b basic[T]) CoreTypeName() string {
 	return lib.TypeName(b.v)
 }
 
-func (b *basic[T]) Validate() error {
+func (b basic[T]) Validate() error {
 	return nil
 }
