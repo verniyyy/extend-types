@@ -8,22 +8,23 @@ import (
 	"github.com/verniyyy/extend-types-go/lib"
 )
 
-func NewArrayList[T any](size int) List[T] {
-
-	return lib.Ptr(make(arrayList[T], size))
+// NewArrayList ...
+// The size specifies the length. The capacity of the slice is
+// equal to its length. A second integer argument may be provided to
+// specify a different capacity; it must be no smaller than the
+// length. For example, NewArrayList[int](0, 10) allocates an underlying array
+// of size 10 and returns a slice of length 0 and capacity 10 that is
+// backed by this underlying array.
+func NewArrayList[T any](size, capacity int) List[T] {
+	if capacity < size {
+		capacity = size
+	}
+	return lib.Ptr(make(arrayList[T], size, capacity))
 }
 
 func NewArrayListFromSlice[T any](s []T) List[T] {
 	l := make(arrayList[T], len(s))
 	copy(l, s)
-	return &l
-}
-
-func NewArrayListWithDefault[T any](size int, defaultVal T) List[T] {
-	l := make(arrayList[T], size)
-	for i := range l {
-		l[i] = defaultVal
-	}
 	return &l
 }
 

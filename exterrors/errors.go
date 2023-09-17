@@ -10,7 +10,7 @@ func NewErrors() Errors {
 	return make(Errors, 0)
 }
 
-func NewErrorsWithBuff(size int) Errors {
+func NewErrorsWithCap(size int) Errors {
 	return make(Errors, 0, size)
 }
 
