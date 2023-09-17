@@ -5,7 +5,7 @@ import (
 	"encoding/gob"
 	"fmt"
 
-	"github.com/verniyyy/extend-types/lib"
+	"github.com/verniyyy/extend-types-go/lib"
 )
 
 func NewArrayList[T any](size int) List[T] {

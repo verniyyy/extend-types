@@ -2,7 +2,7 @@ package list
 
 import (
 	"github.com/samber/lo"
-	"github.com/verniyyy/extend-types/lib"
+	"github.com/verniyyy/extend-types-go/lib"
 )
 
 func (l arrayList[T]) Find(predicate func(item T) bool) (T, bool) {

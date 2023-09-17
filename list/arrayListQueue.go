@@ -1,6 +1,6 @@
 package list
 
-import "github.com/verniyyy/extend-types/lib"
+import "github.com/verniyyy/extend-types-go/lib"
 
 func NewQueue[T any]() Queue[T] {
 	return lib.Ptr(make(arrayList[T], 0))

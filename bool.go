@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/verniyyy/extend-types/lib"
+	"github.com/verniyyy/extend-types-go/lib"
 )
 
 type Bool bool

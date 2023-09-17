@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/verniyyy/extend-types/lib"
+	"github.com/verniyyy/extend-types-go/lib"
 	"golang.org/x/exp/constraints"
 )
 

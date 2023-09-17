@@ -1,6 +1,6 @@
 package list
 
-import types "github.com/verniyyy/extend-types"
+import types "github.com/verniyyy/extend-types-go"
 
 type List[T any] interface {
 	ReadOnlyList[T]
