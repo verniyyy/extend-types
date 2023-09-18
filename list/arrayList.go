@@ -68,7 +68,13 @@ func (l *arrayList[T]) Overwrite(i int, v T) {
 }
 
 func (l *arrayList[T]) Concat(list List[T]) {
-	*l = append((*l), *(list.(*arrayList[T]))...)
+	aList, ok := list.(*arrayList[T])
+	if ok {
+		*l = append((*l), *(aList)...)
+	}
+	list.Each(func(v *T) {
+		*l = append(*l, *v)
+	})
 }
 
 func (l arrayList[T]) IsEmpty() bool {
