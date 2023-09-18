@@ -67,6 +67,13 @@ func (l *arrayList[T]) Overwrite(i int, v T) {
 	(*l)[index] = v
 }
 
+// Fill ...
+func (l *arrayList[T]) Fill(v T) {
+	for i := range *l {
+		(*l)[i] = v
+	}
+}
+
 func (l *arrayList[T]) Concat(list List[T]) {
 	aList, ok := list.(*arrayList[T])
 	if ok {

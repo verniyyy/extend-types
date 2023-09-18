@@ -12,6 +12,7 @@ type List[T any] interface {
 	Insert(int, T)
 	Concat(List[T])
 	Overwrite(int, T)
+	Fill(T)
 	Remove(int)
 }
 
