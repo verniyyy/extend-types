@@ -19,6 +19,10 @@ func NewArrayListFromSlice[T any](s []T) List[T] {
 	return &l
 }
 
+func ToArrayListFromSlice[T any](s []T) List[T] {
+	return lib.Ptr(arrayList[T](s))
+}
+
 func NewArrayListWithDefault[T any](size int, defaultVal T) List[T] {
 	l := make(arrayList[T], size)
 	for i := range l {
