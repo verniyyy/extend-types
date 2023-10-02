@@ -17,7 +17,7 @@ func newBasic[T constraints.Ordered](v T) basic[T] {
 	}
 }
 
-func (b basic[T]) value() T {
+func (b basic[T]) Value() T {
 	return b.v
 }
 
