@@ -17,47 +17,47 @@ func NewFloat[T constraints.Float](v T) Float[T] {
 }
 
 func (f Float[T]) Float32() float32 {
-	return float32(f.value())
+	return float32(f.Value())
 }
 
 func (f Float[T]) Float64() float64 {
-	return float64(f.value())
+	return float64(f.Value())
 }
 
 func (f Float[T]) Int() int {
-	return int(f.value())
+	return int(f.Value())
 }
 
 func (f Float[T]) Int8() int8 {
-	return int8(f.value())
+	return int8(f.Value())
 }
 
 func (f Float[T]) Int16() int16 {
-	return int16(f.value())
+	return int16(f.Value())
 }
 
 func (f Float[T]) Int32() int32 {
-	return int32(f.value())
+	return int32(f.Value())
 }
 
 func (f Float[T]) Int64() int64 {
-	return int64(f.value())
+	return int64(f.Value())
 }
 
 func (f Float[T]) UInt8() uint8 {
-	return uint8(f.value())
+	return uint8(f.Value())
 }
 
 func (f Float[T]) UInt16() uint16 {
-	return uint16(f.value())
+	return uint16(f.Value())
 }
 
 func (f Float[T]) UInt32() uint32 {
-	return uint32(f.value())
+	return uint32(f.Value())
 }
 
 func (f Float[T]) UInt64() uint64 {
-	return uint64(f.value())
+	return uint64(f.Value())
 }
 
 func (f Float[T]) Ceil() T {
@@ -77,15 +77,15 @@ func (f Float[T]) Abs() T {
 }
 
 func (f Float[T]) IsNegative() bool {
-	return f.value() < 0
+	return f.Value() < 0
 }
 
 func (f Float[T]) IsPositive() bool {
-	return f.value() > 0
+	return f.Value() > 0
 }
 
 func (f Float[T]) IsZero() bool {
-	return f.value() == 0.0
+	return f.Value() == 0.0
 }
 
 func (f Float[T]) Str() Str {

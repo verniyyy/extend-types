@@ -30,15 +30,15 @@ func fromStringer(s fmt.Stringer) Str {
 }
 
 func (s Str) Size() int {
-	return len(s.value())
+	return len(s.Value())
 }
 
 func (s Str) Bytes() []byte {
-	return unsafe.Slice(unsafe.StringData(s.value()), s.Size())
+	return unsafe.Slice(unsafe.StringData(s.Value()), s.Size())
 }
 
 func (s Str) Split(sep string) []Str {
-	strList := strings.Split(s.value(), sep)
+	strList := strings.Split(s.Value(), sep)
 	result := make([]Str, len(strList))
 	for i, item := range strList {
 		result[i] = NewStr(item)
@@ -47,5 +47,5 @@ func (s Str) Split(sep string) []Str {
 }
 
 func (s Str) Include(sub string) bool {
-	return strings.Contains(s.value(), sub)
+	return strings.Contains(s.Value(), sub)
 }

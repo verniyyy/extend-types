@@ -6,7 +6,7 @@ package types
 // 	strings_ := lo.Map(
 // 		cs,
 // 		func(c *Char, _ int) string {
-// 			return string(c.value())
+// 			return string(c.Value())
 // 		},
 // 	)
 // 	return NewStr(strings.Join(strings_, ""))
@@ -28,9 +28,9 @@ func NewChar[T ~string](char T) Char {
 }
 
 func (c Char) String() string {
-	return string(c.value())
+	return string(c.Value())
 }
 
 func (c Char) Byte() byte {
-	return byte(c.value())
+	return byte(c.Value())
 }
