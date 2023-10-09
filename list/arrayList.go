@@ -125,7 +125,7 @@ func (l arrayList[T]) bounds() (from, to int) {
 // index ...
 func (l arrayList[T]) index(i int) int {
 	from, to := l.bounds()
-	if i < from || i >= to {
+	if i < from || i > to {
 		panic(IndexError(uint(len(l)), i))
 	}
 	if i < 0 {
