@@ -45,8 +45,7 @@ func TestArrayList_Each(t *testing.T) {
 	l.Add(Hoge{Str: "hoge"})
 	l.Add(Hoge{Str: "fuga"})
 
-	e := l.Each(func(v *Hoge) { v.Str = "piyo" })
-	e.Print()
+	l.Each(func(v Hoge) { v.Str = "piyo" })
 }
 
 func TestArrayList_EachWithIndex(t *testing.T) {
@@ -56,7 +55,7 @@ func TestArrayList_EachWithIndex(t *testing.T) {
 
 	l2 := NewArrayList[string](len(l))
 
-	l.EachWithIndex(func(v *Hoge, i int) { l2.Overwrite(i, v.Str) })
+	l.EachWithIndex(func(v Hoge, i int) { l2.Overwrite(i, v.Str) })
 	l2.Print()
 }
 
