@@ -14,10 +14,10 @@ go get -u github.com/verniyyy/extend-types-go
 
 # Usage
 ```
-type MyString struct{ basic.Str }
+type MyString struct{ types.Str }
 
 func NewMyString(s string) MyString {
-	return MyString{basic.NewStr(s)}
+	return MyString{types.NewStr(s)}
 }
 
 func main() {
