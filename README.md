@@ -1,11 +1,31 @@
 # extend-types-go
-This package supports your object-oriented programming.
-extend-types-go provides extended objects inheriting from built-in types and a list of extended slices.
+Supporting your object-oriented programming and,
+providing extended objects inheriting from built-in types.
 
-Extended objects are immutable objects, and implemented methods are non-destructive.
-They implement typecast methods and several utility methods, reducing the need to define your own value objects of the underlying type.
+Extended objects are immutable, and implemented methods are non-destructive.
+They implement typecast methods and several utility methods, reducing the need to define value objects of the underlying type.
 
-list is a defined type of slice that uses generics and implements a set of methods based on Ruby Array.
+Also, list is a defined type of slice that uses generics and implements a set of methods based on Ruby Array Class.
+
+# Installation
+```
+go get -u github.com/verniyyy/extend-types-go
+```
+
+# Usage
+```
+type MyString struct{ basic.Str }
+
+func NewMyString(s string) MyString {
+	return MyString{basic.NewStr(s)}
+}
+
+func main() {
+  myString := NewMyString("foo")
+  _ = myString.Value() // get raw value
+  _ = myString.Validate() // returning nil
+}
+```
 
 # Contributing
 This was originally an implementation for myself, but I am currently in the process of experimentally releasing it as OSS.
