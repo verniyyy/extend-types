@@ -1,6 +1,11 @@
 package maybe
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+
+	"github.com/verniyyy/extend-types-go/lib"
+)
 
 // Some ...
 func Some[T any](v T) Maybe[T] {
@@ -39,6 +44,31 @@ func (t Maybe[T]) HasSome() bool {
 // None ...
 func (t Maybe[T]) None() bool {
 	return t.none
+}
+
+// MarshalJSON ...
+func (t Maybe[T]) MarshalJSON() ([]byte, error) {
+	if t.none {
+		json.Marshal(nil)
+	}
+	return json.Marshal(t.v)
+}
+
+// UnmarshalJSON ...
+func (t *Maybe[T]) UnmarshalJSON(b []byte) error {
+	decoded := new(T)
+	err := json.Unmarshal(b, decoded)
+	if err != nil {
+		return err
+	}
+
+	if lib.DeepEqual(*decoded, t.v) {
+		t.none = true
+		return nil
+	}
+
+	t.v = *decoded
+	return nil
 }
 
 // Run ...
